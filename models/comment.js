@@ -1,6 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+class Comment extends Model {
+
+}
+
 Comment.init (
     {
     id: {
@@ -10,7 +14,8 @@ Comment.init (
         autoIncrement: true,
       },
     body: {
-
+        type: DataTypes.TEXT,
+        allowNull: false,
     },
     whenCreated: {
         type: sequelize.DATE,

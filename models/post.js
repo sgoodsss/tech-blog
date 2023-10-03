@@ -14,10 +14,12 @@ Post.init(
             autoIncrement: true,
         },
         title: {
-
+            type: DataTypes.STRING,
+            allowNull: false,
         },
         body: {
-
+            type: DataTypes.TEXT,
+            allowNull: false,
         },
         whenCreated: {
             type: sequelize.DATE,
