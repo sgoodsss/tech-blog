@@ -1,5 +1,13 @@
+//Create API routes for GET, POST, DELETE, PUT (UPDATE)
+
 const router = require('express').Router();
 const { User } = require('../../models');
+
+//Login
+
+//Create
+
+//Logout
 
 router.post('/', rememberMe, async (req, res) => {
   try {
