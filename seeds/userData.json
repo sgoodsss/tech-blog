@@ -1,0 +1,32 @@
+[
+    {
+        "firstName": "Sarah",
+        "lastName": "Goodell",
+        "email": "sarahlgoodell1@gmail.com",
+        "password": "IloveBolt!"
+    },
+    {
+        "firstName": "Michael",
+        "lastName": "Gonzalez",
+        "email": "mikeandsarah4ever@gmail.com",
+        "password": "IloveRanger!"
+    },
+    {
+        "firstName": "Madison",
+        "lastName": "Cain",
+        "email": "madiandjoey@gmail.com",
+        "password": "twilightlover123"
+    },
+    {
+        "firstName": "Arden",
+        "lastName": "Beyer",
+        "email": "tysonstrong@gmail.com",
+        "password": "IloveTyson!"
+    },
+    {
+        "firstName": "Maribeth",
+        "lastName": "Graham",
+        "email": "mbandchris@gmail.com",
+        "password": "IloveMolly!"
+    }
+]
