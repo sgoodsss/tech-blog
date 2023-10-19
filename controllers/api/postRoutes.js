@@ -16,6 +16,8 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+//GET ALL POSTS ROUTE
+
 //CREATE UPDATE POST ROUTES
 
 //Delete Post 
