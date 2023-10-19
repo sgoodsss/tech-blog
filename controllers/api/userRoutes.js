@@ -1,7 +1,7 @@
-//Create API routes for GET, POST, DELETE, PUT (UPDATE)
-
 const router = require('express').Router();
 const { User } = require('../../models');
+
+// The "api/users" endpoint
 
 //Create new User
 router.post('/', async (req, res) => {
