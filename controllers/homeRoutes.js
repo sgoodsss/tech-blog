@@ -1,12 +1,8 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
+const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 //Create GET route `/` to get all posts on the homepage without login
-
-//GET one post with comments
-
-
 router.get('/', async (req, res) => {
   try {
     // Get all posts and JOIN with user data
@@ -14,7 +10,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
-        //   attributes: ['name'],
+          attributes: ['name'],
         },
       ],
     });
@@ -31,13 +27,14 @@ router.get('/', async (req, res) => {
   }
 });
 
+//Get one Post by ID
 router.get('/posts/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
         {
           model: User,
-        //   attributes: ['name'],
+          attributes: ['name'],
         },
       ],
     });
