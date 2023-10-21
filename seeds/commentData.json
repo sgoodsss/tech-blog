@@ -1,92 +1,77 @@
 [
     {
         "body": "I love your thoughts on JavaScript!",
-        "whenCreated": "",
-        "user_id": "0",
-        "post_id": "0"
+        "user_id": "1",
+        "post_id": "1"
     },
     {
         "body": "Thanks for sharing!",
-        "whenCreated": "",
-        "user_id": "2",
-        "post_id": "0"
+        "user_id": "3",
+        "post_id": "1"
     },
     {
         "body": "I can't wait to use JavaScript with React!",
-        "whenCreated": "",
-        "user_id": "3",
-        "post_id": "0"
+        "user_id": "4",
+        "post_id": "1"
     },
     {
         "body": "I love your thoughts on SQL!",
-        "whenCreated": "",
-        "user_id": "0",
-        "post_id": "1"
+        "user_id": "1",
+        "post_id": "2"
     },
     {
         "body": "Thanks for sharing!",
-        "whenCreated": "",
-        "user_id": "1",
-        "post_id": "1"
+        "user_id": "2",
+        "post_id": "2"
     },
     {
         "body": "I can't wait to practice with SQL!",
-        "whenCreated": "",
-        "user_id": "3",
-        "post_id": "1"
+        "user_id": "4",
+        "post_id": "2"
     },
     {
         "body": "I love your thoughts on AI and Coding!",
-        "whenCreated": "",
-        "user_id": "0",
-        "post_id": "2"
+        "user_id": "1",
+        "post_id": "3"
     },
     {
         "body": "Thanks for sharing!",
-        "whenCreated": "",
-        "user_id": "1",
-        "post_id": "2"
+        "user_id": "2",
+        "post_id": "3"
     },
     {
         "body": "I can't wait to practice with SQL!",
-        "whenCreated": "",
-        "user_id": "2",
-        "post_id": "2"
-    },
-    {
-        "body": "I love your thoughts on the challenges of Boot Camps!",
-        "whenCreated": "",
-        "user_id": "4",
-        "post_id": "3"
-    },
-    {
-        "body": "Thanks for sharing!",
-        "whenCreated": "",
-        "user_id": "1",
-        "post_id": "3"
-    },
-    {
-        "body": "I can't wait for our last project!!",
-        "whenCreated": "",
         "user_id": "3",
         "post_id": "3"
     },
     {
-        "body": "I love your thoughts on Agile Web Development!",
-        "whenCreated": "",
-        "user_id": "0",
+        "body": "I love your thoughts on the challenges of Boot Camps!",
+        "user_id": "5",
         "post_id": "4"
     },
     {
         "body": "Thanks for sharing!",
-        "whenCreated": "",
         "user_id": "2",
         "post_id": "4"
     },
     {
         "body": "I can't wait for our last project!!",
-        "whenCreated": "",
-        "user_id": "1",
+        "user_id": "4",
         "post_id": "4"
+    },
+    {
+        "body": "I love your thoughts on Agile Web Development!",
+        "user_id": "1",
+        "post_id": "5"
+    },
+    {
+        "body": "Thanks for sharing!",
+        "user_id": "3",
+        "post_id": "5"
+    },
+    {
+        "body": "I can't wait for our last project!!",
+        "user_id": "2",
+        "post_id": "5"
     }
 ]

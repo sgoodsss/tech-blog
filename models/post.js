@@ -21,11 +21,6 @@ Post.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        whenCreated: {
-            type: sequelize.DATE,
-            allowNull: true,
-            defaultValue: sequelize.NOW,
-        },
         user_id: {
             //Foreign Key
             type: DataTypes.INTEGER,
