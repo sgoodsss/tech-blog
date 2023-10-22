@@ -1,27 +1,19 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post, Comment, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // The "/api/posts" endpoint
 
 // Get all Posts with Comments
-router.get('/', async (req, res) => {
-    try {
-      // Find all Posts and include associated Comments
-      const posts = await Post.findAll({
-        include: [
-          {
-            model: Comment,
-            attributes: ['body'],
-          },
-        ],
-      });
-  
-      res.status(200).json(posts);
-    } catch (error) {
-      res.status(500).json({ message: 'Server error', error });
-    }
+router.get('/', (req, res) => {
+  Post.findAll({
+    include: {
+      model: [Comment],
+    },
+  }).then((postData) => {
+    res.json(postData);
   });
+});
 
 //Get one Post by ID with Comments
 router.get('/:id', async (req, res) => {
