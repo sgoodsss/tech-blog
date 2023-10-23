@@ -1,3 +1,5 @@
+// let loginBtn= document.getElementById("loginBtn");
+
 //Function to handle login logic
 var loginFormHandler = async (event) => {
     event.preventDefault();
@@ -29,6 +31,10 @@ function loginError() {
 };
 
  //Event listener v2 - removes console error
-  $(document).on('submit', '.login-form', function (event) {
+$(document).on('submit', '.login-form', function (event) {
     loginFormHandler(event)
   });
+
+// loginBtn.addEventListener('submit', function(event){
+//   loginFormHandler(event)
+// });
