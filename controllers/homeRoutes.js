@@ -29,17 +29,17 @@ router.get('/profile', withAuth, async (req, res) => {
     console.log(req.session.user_id)
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [Post],
+      include: [User, Post, Comment],
     });
     const user = userData.get({ plain: true });
     console.log(user)
 
     res.render('profile', {
-      teacher,
+      user,
       logged_in: true
     });
   } catch (err) {
-    console.log("Teacher", err)
+    console.log("User", err)
     res.status(500).json(err);
   }
 });
