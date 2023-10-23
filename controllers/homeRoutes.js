@@ -5,7 +5,17 @@ const withAuth = require('../utils/auth');
 // Render the homepage
 router.get('/', async (req, res) => {
   try {
-    res.render('homepage');
+    const postData = await Post.findAll({});
+
+    // console.log(postData.get({plain:true}))
+    const posts = postData.map((post)=> post.get({ plain:true }))
+
+    console.log(posts)
+
+    res.render('homepage', {
+      posts,
+    });
+
   } catch (err) {
     res.status(500).json(err);
   }
@@ -27,17 +37,34 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     console.log(req.session)
     console.log(req.session.user_id)
+
+    // const userData = await User.findByPk(req.session.user_id, {
+    //   attributes: { exclude: ['password'] },
+    //   include: [User, Post, Comment],
+    // });
+    
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [User, Post, Comment],
+        attributes: { exclude: ["password"]}
     });
-    const user = userData.get({ plain: true });
+
+    const user = userData.get({ plain:true })
     console.log(user)
 
+    const postData = await Post.findAll({
+      where:{
+        user_id: req.session.user_id
+      }
+    });
+
+    const posts = postData.map((post)=> {post.get({ plain:true })})
+    console.log(posts)
+
     res.render('profile', {
+      posts, 
       user,
       logged_in: true
     });
+
   } catch (err) {
     console.log("User", err)
     res.status(500).json(err);
