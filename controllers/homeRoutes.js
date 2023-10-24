@@ -24,15 +24,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Render the signup page
-router.get('/signup', async (req, res) => {
-  try {
-    res.render('signup');
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
+//Render Individual Post Page
 router.get('/posts/:id', withAuth, async (req, res) => {
   const postData= await Post.findByPk(req.params.id, {
     include: [User, Comment]
@@ -71,27 +63,6 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       posts, 
-      user,
-      logged_in: req.session.logged_in
-    });
-
-  } catch (err) {
-    console.log("User", err)
-    res.status(500).json(err);
-  }
-});
-
-//   Use withAuth middleware to prevent access to route - New Post
-router.get('/post', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-    });
-
-    const user = userData.get({ plain: true });
-
-    res.render('post', {
       user,
       logged_in: req.session.logged_in
     });
