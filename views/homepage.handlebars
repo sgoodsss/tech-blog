@@ -1,24 +1,21 @@
 {{!-- Homepage View --}}
 <!-- Loop over each object in the posts array -->
 {{#each posts as |post| }}
-<div class="row mb-4 project">
+<div class="row mb-4 post">
+
   <div class="col-md-5">
     <h2>
       <a href="/posts/{{post.id}}">{{post.title}}</a>
     </h2>
-    <p>
-      {{post.body}}
-      {{!-- <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
-      needed! --}}
-    </p>
-    <p>Created by {{user.firstName}} {{user.lastName}}</p>
+    {{!-- This is not working --}}
+    <p>Shared by {{user_id.firstName}} {{user_id.lastName}}</p>
   </div>
+
   <div class="col-md-7">
     <p>
       {{post.body}}
     </p>
   </div>
+
 </div>
 {{/each}}
