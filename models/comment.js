@@ -16,23 +16,7 @@ Comment.init (
     body: {
         type: DataTypes.TEXT,
         allowNull: false,
-    },
-    user_id: {
-        //Foreign Key
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'user',
-            key: 'id',
-        },
-    },
-    post_id: {
-        //Foreign Key
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'post',
-            key: 'id',
-        },
-    },
+    }
 },
 {
     sequelize,

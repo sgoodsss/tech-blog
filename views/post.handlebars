@@ -1,15 +1,30 @@
-{{!-- New Post --}}
+{{!-- Selected Post --}}
 <div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <h2>{{title}}</h2>
+  <h3>Shared by {{user.firstName}} {{user.lastName}}</h3>
+  <p>{{body}}</p>
+
+  {{!-- Add Comments for the Selected Post --}}
+  {{#each comments as |comment| }}
+  <div class="row mb-4 comment">
+
+    <div class="col-md-5">
+      {{!-- This is not working --}}
+      <p>Shared by {{user.firstName}} {{user.lastName}}</p>
+    </div>
+
+    <div class="col-md-7">
+      <p>
+        {{comment.body}}
+      </p>
+    </div>
+
+  </div>
+  {{/each}}
+
   <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
+    <a href="/profile">Back to Profile!</a>
+    <a href="/">Back to Homepage!</a>
   </p>
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
+
 </div>

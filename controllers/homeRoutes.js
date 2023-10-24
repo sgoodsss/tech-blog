@@ -6,19 +6,18 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // Gets all Posts to display on the homepage
-    const postData = await Post.findAll({});
+    const postData = await Post.findAll({
+      include: [User]
+    });
     const posts = postData.map((post)=> post.get({ plain:true }))
-
-    // Gets all Users to display who created each post
-    // const userData = await User.findall({
-    //   attributes: { exclude: ["password"]}
-    // });
-    // const users = userData.map((user)=> user.get({ plain:true }))
 
     res.render('homepage', {
       posts,
-      // users,
+      logged_in: req.session.logged_in
     });
+
+    // For testing purposes in Postman
+    // res.json(posts)
 
   } catch (err) {
     res.status(500).json(err);
@@ -33,6 +32,17 @@ router.get('/signup', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/posts/:id', withAuth, async (req, res) => {
+  const postData= await Post.findByPk(req.params.id, {
+    include: [User, Comment]
+  })
+  const post = postData.get({ plain:true })
+  res.render('post', {
+    ...post,
+    logged_in: req.session.logged_in
+  });
+})
 
 // Use withAuth middleware to prevent access to route- Profile View
 router.get('/profile', withAuth, async (req, res) => {
@@ -62,7 +72,7 @@ router.get('/profile', withAuth, async (req, res) => {
     res.render('profile', {
       posts, 
       user,
-      logged_in: true
+      logged_in: req.session.logged_in
     });
 
   } catch (err) {
@@ -83,14 +93,13 @@ router.get('/post', withAuth, async (req, res) => {
 
     res.render('post', {
       user,
-      logged_in: true
+      logged_in: req.session.logged_in
     });
 
   } catch (err) {
     console.log("User", err)
     res.status(500).json(err);
   }
-
 });
 
 // If the user is already logged in, redirect the request to the user's profile page
