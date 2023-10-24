@@ -1,0 +1,29 @@
+/* Google Fonts */
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Orbitron', sans-serif;
+font-family: 'Pixelify Sans', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Tilt Neon', sans-serif; */
+
+/* Hex Colors */
+/* 
+Mint #C4E7D4
+Ash #C4DACF
+Lavender #B9C0DA
+Plum #998DA0
+Dark Purple #63585E 
+*/
+
+body {
+    background-color: #998DA0;
+    font-family: 'Roboto Mono';
+}
+
+a{
+    text-decoration: none;
+}
+
+#main-title {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 90px;
+}
