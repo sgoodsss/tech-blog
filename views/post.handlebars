@@ -5,12 +5,12 @@
   <p>{{body}}</p>
 
   {{!-- Add Comments for the Selected Post --}}
-  {{#each comments as |comment| }}
+  {{!-- NOT WORKING--}}
+  {{#each Comments as |comment| }}
   <div class="row mb-4 comment">
 
     <div class="col-md-5">
-      {{!-- This is not working --}}
-      <p>Shared by {{user.firstName}} {{user.lastName}}</p>
+      <p>Shared by {{comment.user.firstName}} {{comment.user.lastName}}</p>
     </div>
 
     <div class="col-md-7">

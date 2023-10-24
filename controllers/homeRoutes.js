@@ -2,14 +2,14 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-// Render the homepage
+// Render the Homepage
 router.get('/', async (req, res) => {
   try {
     // Gets all Posts to display on the homepage
     const postData = await Post.findAll({
       include: [User]
     });
-    const posts = postData.map((post)=> post.get({ plain:true }))
+    const posts = postData.map((post) => post.get({ plain: true }))
 
     res.render('homepage', {
       posts,
@@ -26,15 +26,30 @@ router.get('/', async (req, res) => {
 
 //Render Individual Post Page
 router.get('/posts/:id', withAuth, async (req, res) => {
-  const postData= await Post.findByPk(req.params.id, {
-    include: [User, Comment]
-  })
-  const post = postData.get({ plain:true })
-  res.render('post', {
-    ...post,
-    logged_in: req.session.logged_in
-  });
-})
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        User,
+        {
+          model: Comment,
+          include: [User],
+        },
+      ],
+    });
+
+    const post = postData.get({ plain: true })
+    console.log(post)
+
+    res.render('post', {
+      ...post,
+      logged_in: req.session.logged_in
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+
+});
 
 // Use withAuth middleware to prevent access to route- Profile View
 router.get('/profile', withAuth, async (req, res) => {
@@ -42,27 +57,27 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     console.log(req.session)
     console.log(req.session.user_id)
-    
+
     // Find the user that is logged in
     const userData = await User.findByPk(req.session.user_id, {
-        attributes: { exclude: ["password"]}
+      attributes: { exclude: ["password"] }
     });
 
-    const user = userData.get({ plain:true })
+    const user = userData.get({ plain: true })
     console.log(user)
 
     // Find the post data for the user that is logged in
     const postData = await Post.findAll({
-      where:{
+      where: {
         user_id: req.session.user_id
       }
     });
 
-    const posts = postData.map((post)=> post.get({ plain:true }))
+    const posts = postData.map((post) => post.get({ plain: true }))
     console.log(posts)
 
     res.render('profile', {
-      posts, 
+      posts,
       user,
       logged_in: req.session.logged_in
     });
