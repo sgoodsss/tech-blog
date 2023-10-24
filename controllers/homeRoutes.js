@@ -5,15 +5,19 @@ const withAuth = require('../utils/auth');
 // Render the homepage
 router.get('/', async (req, res) => {
   try {
+    // Gets all Posts to display on the homepage
     const postData = await Post.findAll({});
-
-    // console.log(postData.get({plain:true}))
     const posts = postData.map((post)=> post.get({ plain:true }))
 
-    console.log(posts)
+    // Gets all Users to display who created each post
+    // const userData = await User.findall({
+    //   attributes: { exclude: ["password"]}
+    // });
+    // const users = userData.map((user)=> user.get({ plain:true }))
 
     res.render('homepage', {
       posts,
+      // users,
     });
 
   } catch (err) {
@@ -30,19 +34,14 @@ router.get('/signup', async (req, res) => {
   }
 });
 
-
 // Use withAuth middleware to prevent access to route- Profile View
 router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     console.log(req.session)
     console.log(req.session.user_id)
-
-    // const userData = await User.findByPk(req.session.user_id, {
-    //   attributes: { exclude: ['password'] },
-    //   include: [User, Post, Comment],
-    // });
     
+    // Find the user that is logged in
     const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ["password"]}
     });
@@ -50,13 +49,14 @@ router.get('/profile', withAuth, async (req, res) => {
     const user = userData.get({ plain:true })
     console.log(user)
 
+    // Find the post data for the user that is logged in
     const postData = await Post.findAll({
       where:{
         user_id: req.session.user_id
       }
     });
 
-    const posts = postData.map((post)=> {post.get({ plain:true })})
+    const posts = postData.map((post)=> post.get({ plain:true }))
     console.log(posts)
 
     res.render('profile', {
@@ -77,12 +77,6 @@ router.get('/post', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      // include: [
-      //   {
-      //     model: Goals,
-      //     attributes: ['name'],
-      //   },
-      // ],
     });
 
     const user = userData.get({ plain: true });
@@ -91,10 +85,12 @@ router.get('/post', withAuth, async (req, res) => {
       user,
       logged_in: true
     });
+
   } catch (err) {
     console.log("User", err)
     res.status(500).json(err);
   }
+
 });
 
 // If the user is already logged in, redirect the request to the user's profile page

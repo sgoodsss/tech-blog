@@ -17,7 +17,8 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to create post');
+      console.log("Failed to create new post", err)
+      res.status(500).json(err);
     }
   }
 };
@@ -33,7 +34,8 @@ const delButtonHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to delete post');
+      console.log("Failed to delete post", err)
+      res.status(500).json(err);
     }
   }
 };
