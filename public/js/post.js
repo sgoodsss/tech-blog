@@ -4,34 +4,29 @@ const newComment = async (event) => {
 
     // Collect value from the comment form
     const commentBody = document.querySelector('#comment-body').value.trim();
-  
-    if (commentBody) {
+    const id = document.querySelector('input[name="post-id"]').value;
+
+    if (commentBody && id) {
       
       const response = await fetch('/api/comments', {
         method: 'POST',
-        body: JSON.stringify({ commentBody }),
+        body: JSON.stringify({ id, commentBody }),
         headers: { 'Content-Type': 'application/json' },
       });
-  
+
       if (response.ok) {
-        document.location.replace(`/post/${id}`);
+        document.location.reload();
       } else {
         commentError();
       }
+      
     }
   };
 
   // Function to display comment error message 
   function commentError() {
-    document.querySelector('#error').innerHTML= 
-    '<div class="alert alert-danger text-center m-3 p-3" role="alert">Failed to post comment :-( </div>';
-    return('Failed to post comment');
+    console.error();
   };
-
- //Event listener v2 - removes console error
-// $(document).on('submit', '.comment-form', function (event) {
-//   newComment(event)
-// });
 
 document
   .querySelector('.comment-form')
