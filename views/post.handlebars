@@ -23,14 +23,16 @@
   </div>
   {{/each}}
 
-{{!-- Adds a new Comment --}}
-{{!-- BAD REQUEST ERROR--}}
-  <div class="col-md-6">
-    <h2 class="newCommentTitle">Write a New Comment!</h2>
+  {{!-- Adds a new Comment --}}
+  <div class="col">
+    <div class="newCommentTitleDiv row">
+      <h2 class="newCommentTitle">Write a New Comment!</h2>
+    </div>
+
     <form class="form comment-form">
       <div class="form-group">
         {{!-- Passing in Post ID value in hidden element --}}
-        <input type="hidden" name="post-id" value="{{id}}"/>
+        <input type="hidden" name="post-id" value="{{id}}" />
         <label for="comment-body">What would you like to say?</label>
         <textarea class="form-input" id="comment-body" name="comment-body"></textarea>
       </div>
@@ -38,14 +40,15 @@
         <button class="btn btn-primary" type="submit">Post</button>
       </div>
     </form>
+
   </div>
 </div>
 
+<div class="btnRow row">
   <p>
     <a href="/profile">Back to Profile!</a>
     <a href="/">Back to Homepage!</a>
   </p>
-
 </div>
 
 <script src="/js/post.js"></script>

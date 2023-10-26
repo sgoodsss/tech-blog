@@ -24,6 +24,7 @@ p {
 
 #commentBody {
     text-align: center;
+    padding-left: 10%;
 }
 
 /* New Comment Form Styling */
@@ -32,3 +33,47 @@ p {
     text-align: center;
 }
 
+.newCommentTitleDiv {
+    align-items: center;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+textarea {
+    width: 75%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 5px grey;
+    border: 2px solid grey;
+    border-radius: 4px;
+    font-size: 14px;
+    resize: none;
+}
+
+
+label {
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    padding: 1%;
+    font-size: 25px;
+}
+  
+label:after { content: " " }
+
+
+.btn-primary {
+    height: 5%;
+    width: 20%;
+    text-align: center;
+    padding: 1%;
+}
+
+a {
+    padding: 15%;
+    font-size: 20px;
+}
+
+.btnRow {
+    padding: 2%;
+}
