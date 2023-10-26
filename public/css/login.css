@@ -1,0 +1,25 @@
+h2 {
+    padding: 5%;
+    text-align: center;
+    margin-left: 3.5%;
+}
+
+.login-form {
+    text-align: center;
+    font-size: large;
+}
+
+.signup-form {
+    text-align: center;
+    font-size: large;
+}
+
+.form-group {
+    padding: 1.5%;
+}
+
+.btn {
+    height: 10%;
+    width: 25%;
+    text-align: center;
+}
