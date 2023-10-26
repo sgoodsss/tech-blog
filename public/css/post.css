@@ -50,7 +50,6 @@ textarea {
     resize: none;
 }
 
-
 label {
     font-weight: bold;
     display: block;
@@ -76,4 +75,12 @@ a {
 
 .btnRow {
     padding: 2%;
+}
+
+.btn-danger {
+    align-items: left;
+    height: 10%;
+    width: 25%;
+    text-align: center;
+    padding: 1%;
 }

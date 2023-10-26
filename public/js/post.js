@@ -15,7 +15,7 @@ const newComment = async (event) => {
       });
 
       if (response.ok) {
-        document.location.reload();
+        document.location.replace(`/posts/${post_id}`);
       } else {
         commentError();
       }
@@ -28,6 +28,27 @@ const newComment = async (event) => {
     console.error();
   };
 
+  const delButtonHandler = async (event) => {
+    if (event.target.hasAttribute('data-id')) {
+      const id = event.target.getAttribute('data-id');
+  
+      const response = await fetch(`/api/comments/${id}`, {
+        method: 'DELETE',
+      });
+  
+      if (response.ok) {
+        document.location.reload();
+      } else {
+        console.log("Failed to delete comment", err)
+        res.status(500).json(err);
+      }
+    }
+  };
+
 document
   .querySelector('.comment-form')
   .addEventListener('submit', newComment);
+
+  document
+  .querySelector('.comment-list')
+  .addEventListener('click', delButtonHandler);
