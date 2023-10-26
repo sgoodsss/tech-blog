@@ -18,21 +18,37 @@
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1 id="main-title">
-        <span role="img" aria-label="rocket">🚀</span>
-        <a href="/">Tech Talk!</a>
-      </h1>
-      <nav>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    
+    <a class="navbar-brand" href="/">
+    <h1 id="main-title">🚀Tech Talk!</h1>
+    </a>
+
+    {{!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> --}}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         {{#if logged_in}}
-        <a href="/profile">Profile</a>
-        <button type="none" id="logoutBtn">Logout</button>
+        <li class="nav-item p-3">
+          <a class="nav-link active" aria-current="page" href="profile">Profile</a>
+        </li>
+        <li class="nav-item p-3">
+          <a class="nav-link" id="logoutBtn">Logout</a>
+        </li>
         {{else}}
-        <a href="/login">Login</a>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
         {{/if}}
-      </nav>
-    </header>
+      </ul>
+    </div>
+  </div>
+</nav>
 
     <main class="container container-fluid mt-5">
       {{{ body }}}
