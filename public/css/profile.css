@@ -1,0 +1,70 @@
+.welcomeMsg {
+    font-size: 65px;
+    text-align: center;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+h3 {
+    font-size: 40px;
+    padding: 3%;
+    text-align: center;
+}
+
+/* Form Styling */
+.new-post-form {
+    font-size: x-large;
+}
+
+.form-group {
+    padding: 1.5%;
+    text-align: center;
+}
+
+.btn-primary {
+    height: 10%;
+    width: 25%;
+    text-align: center;
+}
+
+input {
+    padding: 3px;
+    box-shadow: 3px 3px 5px grey;
+    font-size: 16px;
+    font-weight: 600;
+    width: 300px;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 5px grey;
+    border: 2px solid grey;
+    border-radius: 4px;
+    font-size: 14px;
+    resize: none;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    text-align: center;
+  }
+  
+label:after { content: " " }
+
+/* Current Post Styling */
+.col-md-8 {
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+    font-size: 25px;
+}
+
+.col-md-4 {
+    text-align: center;
+    padding-top: 2%;
+}
