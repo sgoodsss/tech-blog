@@ -8,15 +8,15 @@
 
   {{!-- Comments for the Selected Post --}}
   {{#each Comments as |comment| }}
-  <div class="row mb-2 comment">
+  <div id="commentDiv" class="row mb-2 comment">
 
     <div class="col-md-4">
-      <p>Shared by {{comment.user.firstName}} {{comment.user.lastName}}</p>
+      <p id="postedBy">Posted by {{comment.user.firstName}} {{comment.user.lastName}}</p>
     </div>
 
-    <div class="col-md-10">
+    <div id="commentBody" class="col-md-10">
       <p>
-        {{comment.body}}
+        "{{comment.body}}"
       </p>
     </div>
 

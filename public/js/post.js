@@ -3,14 +3,14 @@ const newComment = async (event) => {
     event.preventDefault();
 
     // Collect value from the comment form
-    const commentBody = document.querySelector('#comment-body').value.trim();
-    const id = document.querySelector('input[name="post-id"]').value;
+    const body = document.querySelector('#comment-body').value.trim();
+    const post_id = document.querySelector('input[name="post-id"]').value;
 
-    if (commentBody && id) {
+    if (body && post_id) {
       
       const response = await fetch('/api/comments', {
         method: 'POST',
-        body: JSON.stringify({ id, commentBody }),
+        body: JSON.stringify({ body, post_id }),
         headers: { 'Content-Type': 'application/json' },
       });
 

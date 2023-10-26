@@ -14,9 +14,21 @@ p {
 }
 
 /* Comment List Styling */
+#commentDiv {
+    background-color: #C4DACF;
+}
+
+#postedBy {
+    text-align: left;
+}
+
+#commentBody {
+    text-align: center;
+}
 
 /* New Comment Form Styling */
 .newCommentTitle {
     padding: 1.5%;
     text-align: center;
 }
+
