@@ -1,0 +1,22 @@
+/* Individual Post Styling */
+.title {
+    padding: 1.5%;
+}
+
+h3 {
+    font-size: 25px;
+    padding: 1%;
+}
+
+p {
+    font-size: large;
+    padding: .5%;
+}
+
+/* Comment List Styling */
+
+/* New Comment Form Styling */
+.newCommentTitle {
+    padding: 1.5%;
+    text-align: center;
+}

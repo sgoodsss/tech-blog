@@ -1,6 +1,8 @@
+<link rel="stylesheet" href="/css/post.css">
+
 {{!-- Selected Post --}}
 <div class="text-center">
-  <h2>{{title}}</h2>
+  <h2 class="title">{{title}}</h2>
   <h3>Shared by {{user.firstName}} {{user.lastName}}</h3>
   <p>{{body}}</p>
 
@@ -8,11 +10,11 @@
   {{#each Comments as |comment| }}
   <div class="row mb-2 comment">
 
-    <div class="col-md-5">
+    <div class="col-md-4">
       <p>Shared by {{comment.user.firstName}} {{comment.user.lastName}}</p>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-10">
       <p>
         {{comment.body}}
       </p>
@@ -24,7 +26,7 @@
 {{!-- Adds a new Comment --}}
 {{!-- BAD REQUEST ERROR--}}
   <div class="col-md-6">
-    <h2>Write a New Comment!</h2>
+    <h2 class="newCommentTitle">Write a New Comment!</h2>
     <form class="form comment-form">
       <div class="form-group">
         {{!-- Passing in Post ID value in hidden element --}}
