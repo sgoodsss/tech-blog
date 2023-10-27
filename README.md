@@ -13,16 +13,18 @@
   - [License](#license)
 
   ## Installation
-
   
+  N/A
 
   ## Usage
 
+  To use, go to the following url:
   
 
   ## Credits
-  
-  
+
+  (n.d.). ChatGPT. Retrieved October 27, 2023, from https://chat.openai.com/
+  sequelize.DATE JavaScript and Node.js code examples. (n.d.). Tabnine. Retrieved October 3, 2023, from https://www.tabnine.com/code/javascript/functions/sequelize/DATE
 
   ## License
   Please refer to the LICENSE in the repo
